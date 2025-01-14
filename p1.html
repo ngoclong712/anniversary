@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Hearts</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+      animation: fadeInOut 3s ease-in-out infinite, moveUp 3s ease-in-out infinite;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes moveUp {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
+    }
+
+    setInterval(createHeart, 100);
+  </script>
+</body>
+</html>
