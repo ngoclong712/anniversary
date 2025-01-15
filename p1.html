@@ -16,10 +16,31 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      background-color: transparent;
-      border-radius: 50%;
+      background-color: white;
+      transform: rotate(-45deg);
       box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
       animation: fadeInOut 3s ease-in-out infinite, moveUp 3s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 10px;
     }
 
     @keyframes fadeInOut {
@@ -33,10 +54,10 @@
 
     @keyframes moveUp {
       0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(-45deg);
       }
       100% {
-        transform: translateY(-30px);
+        transform: translateY(-30px) rotate(-45deg);
         opacity: 0;
       }
     }
